@@ -1,3 +1,9 @@
+Name: Jay Patel
+Github link: https://github.com/jpate108/ICA8-Test
+
+
+
+
 # ICA8-Test
 ICA assignment
 
