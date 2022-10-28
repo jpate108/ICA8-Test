@@ -2,7 +2,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 
 class urinalsTest {
@@ -37,6 +36,10 @@ class urinalsTest {
     @Test
     void countValidUrinals(){
         assertEquals(1,uri.countValidUrinals("10001"));
+        assertEquals(0,uri.countValidUrinals("1001"));
+        assertEquals(3,uri.countValidUrinals("00000"));
+        assertEquals(2,uri.countValidUrinals("0000"));
+        assertEquals(1,uri.countValidUrinals("01000"));
         System.out.println("====== Jay Patel == TEST TWO EXECUTED =======");
     }
 }
