@@ -31,6 +31,7 @@ class urinalsTest {
         Assertions.assertEquals(true,uri.checkForValidString(new String("00000100010001")));
         Assertions.assertEquals(false,uri.checkForValidString(new String("110")));
         Assertions.assertEquals(false,uri.checkForValidString(new String("11111111111")));
+        assertFalse(uri.checkForValidString(new String("0000")));
         System.out.println("====== Jay Patel == TEST ONE EXECUTED =======");
     }
 }
