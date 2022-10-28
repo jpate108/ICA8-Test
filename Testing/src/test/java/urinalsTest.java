@@ -22,7 +22,7 @@ class urinalsTest {
     @Test
     void checkForValidString(){
 
-        Assertions.assertEquals(true,uri.checkForValidString(new String("91018")));
+        Assertions.assertEquals(false,uri.checkForValidString(new String("91018")));
         System.out.println("====== Jay Patel == TEST ONE EXECUTED =======");
     }
 }
