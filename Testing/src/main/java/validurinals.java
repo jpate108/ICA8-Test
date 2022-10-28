@@ -21,30 +21,62 @@ public class validurinals{
     public static void getTheString(){
         //to get the string from the user
         System.out.println("Enter the string for urinals");
+        System.out.println("Enter -1 if you have enter all the required input");
+        String str=" ";
+        while(str!="-1") {
+            str = s.next();
+            int a = -1;
+            if (!str.equals("-1")){
+                if(checkForValidString(str)){
+                    a = countValidUrinals(str);
+                }
+                System.out.println(a);
+            }
+            else{
+                System.out.println("Exiting from the input area");
+            }
 
-        String str= s.next();
-        int a=-1;
-        if(checkForValidString(str)){
-           a = countValidUrinals(str);
         }
-
-            System.out.println(a);
-
 
     }
 
     public static void openTheFile() throws IOException {
+        String pn=setNameofthePath();
         File file = new File("testing\\src\\main\\resources\\urinal.dat");
         BufferedReader br = new BufferedReader(new FileReader(file));
         String b;
         int x;
+        FileWriter w = new FileWriter(pn, true);
         while ((b = br.readLine()) != null){
             x = -1;
             if(checkForValidString(b)){
                 x = countValidUrinals(b);
             }
+            System.out.println(x);
+            w.write(x + "\n" );
 
         }
+        w.close();
+        System.out.println("file has been created");
+    }
+
+    public static String setNameofthePath() throws IOException{
+        int z=0;
+        String pn="testing\\src\\main\\resources\\rule.txt";
+        while(true)
+        {
+            File o = new File(pn);
+            if(o.createNewFile()){
+                System.out.println("Creating the file" + o.getName());
+                z=0;
+                break;
+            }
+            else{
+                z=z+1;
+                pn="testing\\src\\main\\resources\\rule"+Integer.toString(z)+".txt";
+            }
+        }
+        return pn;
     }
 
     public static boolean checkForValidString( String str ) {  // checks to see if valid string
