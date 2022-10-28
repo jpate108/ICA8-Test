@@ -36,9 +36,10 @@ class urinalsTest {
     @Test
     void countValidUrinals(){
         assertEquals(1,uri.countValidUrinals("10001"));
-        assertEquals(0,uri.countValidUrinals("1001"));
-        assertEquals(3,uri.countValidUrinals("00000"));
-        assertEquals(2,uri.countValidUrinals("0000"));
+        assertEquals(5,uri.countValidUrinals("000000000"));
+        assertEquals(8,uri.countValidUrinals("00000000010000010000100001"));
+        assertEquals(4,uri.countValidUrinals("000001001000101010100001001"));
+        assertEquals(5,uri.countValidUrinals("10000100001010101000000100001"));
         assertEquals(1,uri.countValidUrinals("01000"));
         System.out.println("====== Jay Patel == TEST TWO EXECUTED =======");
     }
