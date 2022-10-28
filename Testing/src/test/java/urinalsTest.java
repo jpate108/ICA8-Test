@@ -36,7 +36,7 @@ class urinalsTest {
     }
     @Test
     void countValidUrinals(){
-        assertEquals(2,uri.countValidUrinals("10001"));
+        assertEquals(1,uri.countValidUrinals("10001"));
         System.out.println("====== Jay Patel == TEST TWO EXECUTED =======");
     }
 }
