@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.Scanner;
 
 
-public class validurinals {
+public class validurinals{
     static Scanner s = new Scanner(System.in);
     public static void pickTheChoice() throws IOException {
         System.out.println("Enter how you want to give the strings");
@@ -25,8 +25,9 @@ public class validurinals {
         String str= s.next();
         if(checkForValidString(str)){
 
-            System.out.println("djancjks");
+
             countValidUrinals(str);
+
 
         }
         else {
@@ -42,7 +43,6 @@ public class validurinals {
         String b;
         while ((b = br.readLine()) != null){
             if(checkForValidString(b)){
-                System.out.println("sasasasa");
                 countValidUrinals(b);
             }
             else {
@@ -55,10 +55,10 @@ public class validurinals {
     public static boolean checkForValidString( String str ) {  // checks to see if valid string
         //System.out.println ("Not yet implemented");
         char[] c = str.toCharArray();
-        int i=0,j=0;
-        for(i=0;i<c.length;i++)
+
+        for(int i=0;i<c.length;i++)
         {
-            if((c[i]=='1' && i+1<c.length && c[i]==c[i+1]) || (c[i]!='1' && c[i]!='0') )
+            if((c[i]=='1' && i+1<c.length && c[i]==c[i+1]) || (c[i]!='0' && c[i]!='1') )
             {
                 return false;
             }
@@ -66,10 +66,38 @@ public class validurinals {
         return true;
     }
 
-    public static int countValidUrinals(String str){
+    public static void countValidUrinals( String str ){
         //to count the number of the urinals available to use
 
-        return 0;
+        int l = str.length();
+        int c = 0;
+        char[] arr = new char[l];
+        for( int j = 0; j < l ; j++ ){
+            arr[j] = str.charAt(j);
+        }
+        for(int i = 0; i < l ; i++ ){
+            if( arr[i] == '0' ){
+                if( i == 0 ){
+                    if ( arr [i + 1] == '0' ) {
+                        c += 1;
+                        arr[i] = 1;
+                    }
+                }
+                else if( i == (l-1) ){
+                    if ( arr[i - 1] == '0' ) {
+                        c += 1;
+                        arr[i] = 1;
+                    }
+                }
+                else{
+                    if( arr[i+1]=='0' && arr[i-1]=='0' ){
+                        c += 1;
+                        arr[i] = 1;
+                    }
+                }
+            }
+        }
+        System.out.println(c);
     }
 
 
