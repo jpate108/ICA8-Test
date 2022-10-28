@@ -22,16 +22,21 @@ class urinalsTest {
     @Test
     void checkForValidString(){
 
-        Assertions.assertEquals(false,uri.checkForValidString(new String("91018")));
-        Assertions.assertEquals(false,uri.checkForValidString(new String("127%881,0")));
-        Assertions.assertEquals(true,uri.checkForValidString(new String("1000100101")));
-        Assertions.assertEquals(true,uri.checkForValidString(new String("0100010")));
-        Assertions.assertEquals(false,uri.checkForValidString(new String("098")));
-        Assertions.assertEquals(true,uri.checkForValidString(new String("10100")));
-        Assertions.assertEquals(true,uri.checkForValidString(new String("00000100010001")));
-        Assertions.assertEquals(false,uri.checkForValidString(new String("110")));
-        Assertions.assertEquals(false,uri.checkForValidString(new String("11111111111")));
-        assertFalse(uri.checkForValidString(new String("0000")));
+        assertFalse(uri.checkForValidString("91018"));
+        assertFalse(uri.checkForValidString("127%881,0"));
+        assertTrue(uri.checkForValidString("1000100101"));
+        assertTrue(uri.checkForValidString("0100010"));
+        assertFalse(uri.checkForValidString("098"));
+        assertTrue(uri.checkForValidString("10100"));
+        assertTrue(uri.checkForValidString("00000100010001"));
+        assertFalse(uri.checkForValidString("110"));
+        assertFalse(uri.checkForValidString("11111111111"));
+        assertFalse(uri.checkForValidString("Jay Patel"));
         System.out.println("====== Jay Patel == TEST ONE EXECUTED =======");
+    }
+    @Test
+    void countValidUrinals(){
+        assertEquals(2,uri.countValidUrinals("10001"));
+        System.out.println("====== Jay Patel == TEST TWO EXECUTED =======");
     }
 }

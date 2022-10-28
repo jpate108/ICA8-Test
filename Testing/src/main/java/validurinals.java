@@ -23,16 +23,12 @@ public class validurinals{
         System.out.println("Enter the string for urinals");
 
         String str= s.next();
+        int a=-1;
         if(checkForValidString(str)){
-
-
-            countValidUrinals(str);
-
-
+           a = countValidUrinals(str);
         }
-        else {
-            System.out.println("-1");
-        }
+
+            System.out.println(a);
 
 
     }
@@ -41,14 +37,13 @@ public class validurinals{
         File file = new File("testing\\src\\main\\resources\\urinal.dat");
         BufferedReader br = new BufferedReader(new FileReader(file));
         String b;
+        int x;
         while ((b = br.readLine()) != null){
+            x = -1;
             if(checkForValidString(b)){
-                countValidUrinals(b);
+                x = countValidUrinals(b);
             }
-            else {
 
-                System.out.println("-1");
-            }
         }
     }
 
@@ -66,7 +61,7 @@ public class validurinals{
         return true;
     }
 
-    public static void countValidUrinals( String str ){
+    public static int countValidUrinals( String str ){
         //to count the number of the urinals available to use
 
         int l = str.length();
@@ -97,7 +92,7 @@ public class validurinals{
                 }
             }
         }
-        System.out.println(c);
+        return c;
     }
 
 
